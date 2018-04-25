@@ -1,13 +1,34 @@
-struct Account {
+// use transaction::Transaction;
+// use double::mock::Mock;
 
+
+
+struct Account {
+    transactions: Vec<Transaction>,
+}
+
+impl Account {
+    fn new() -> Account {
+        Account {
+            transactions: Vec::new(),
+        }
+    }
+
+    fn withdraw(&mut self, amount: i32) {
+        self.transactions.push(Transaction::withdrawal(amount))
+    }
+
+    fn deposit(&mut self, amount: i32) {
+        self.transactions.push(Transaction::deposit(amount))
+    }
 }
 
 #[cfg(test)]
-mod Account {
+mod account {
     use super::*;
 
     #[test]
-    fn first_test {
-        
+    fn account_test() {
+
     }
 }

@@ -3,20 +3,20 @@ enum TransactionType {
     Debit,
 }
 
-struct Transaction {
+pub struct Transaction {
     amount: i32,
     action: TransactionType,
 }
 
 impl Transaction {
-    fn withdrawal(amount: i32) -> Transaction {
+    pub fn withdrawal(amount: i32) -> Transaction {
         Transaction {
             amount,
             action: TransactionType::Credit,
         }
     }
 
-    fn deposit(amount: i32) -> Transaction {
+    pub fn deposit(amount: i32) -> Transaction {
         Transaction {
             amount,
             action: TransactionType::Debit,
