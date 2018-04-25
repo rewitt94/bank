@@ -32,7 +32,7 @@ Surely something is wrong when you have to make your code 10x more complicated o
 
 In conclusion, no progress was made between 10AM and 6PM. Options for Day 4 are:
  * Find a new way to encapsulate (perhaps I am encapsulating wrong in Rust).
- * Not test my classes in isolation.
+ * Not test in isolation.
  * Do the impossible.
  * Become an Accountant.
 
