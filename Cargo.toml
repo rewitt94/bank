@@ -4,4 +4,4 @@ version = "0.1.0"
 authors = ["rewitt94 <33395399+rewitt94@users.noreply.github.com>"]
 
 [dependencies]
-double = "0.2.2"
+chrono = "0.4.0"
