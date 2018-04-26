@@ -1,29 +1,8 @@
 use transaction::*;
 
-// pub trait ITransaction {
-//     fn withdrawal(amount: i32) -> Self;
-//     fn deposit(amount: i32) -> Self;
-// }
-//
-// impl ITransaction for Transaction {
-//     fn withdrawal(amount: i32) -> Self {
-//         Transaction {
-//             amount,
-//             action: TransactionType::Credit,
-//         }
-//     }
-//
-//     fn deposit(amount: i32) -> Self {
-//         Transaction {
-//             amount,
-//             action: TransactionType::Debit,
-//         }
-//     }
-// }
-
 #[derive(Debug)]
 pub struct Account {
-    pub transactions: Vec<Transaction>,
+    transactions: Vec<Transaction>,
 }
 
 impl Account {
@@ -34,11 +13,15 @@ impl Account {
     }
 
     pub fn withdraw(&mut self, amount: i32) {
-        self.transactions.push(self::ITransaction::withdrawal(amount))
+        self.transactions.push(self::Transaction::withdrawal(amount))
     }
 
     pub fn deposit(&mut self, amount: i32) {
-        self.transactions.push(self::ITransaction::deposit(amount))
+        self.transactions.push(self::Transaction::deposit(amount))
+    }
+
+    pub fn history(&self) -> &Vec<Transaction> {
+        &self.transactions
     }
 }
 
@@ -47,7 +30,18 @@ mod account {
     use super::*;
 
     #[test]
-    fn account_test() {
+    fn withdraw_adds_a_transaction_to_account() {
+        let mut account = Account::new();
+        let test_amount = 250;
+        account.withdraw(test_amount);
+        assert_eq!(account.history(), &vec![Transaction::withdrawal(test_amount)]);
+    }
 
+    #[test]
+    fn deposit_adds_a_transaction_to_account() {
+        let mut account = Account::new();
+        let test_amount = 100;
+        account.deposit(test_amount);
+        assert_eq!(account.history(), &vec![Transaction::deposit(test_amount)]);
     }
 }

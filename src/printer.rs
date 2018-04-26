@@ -5,7 +5,7 @@ trait Printer {
         println!(statement)
     }
 
-    fn write_statement(account: Accont) -> String {
+    fn write_statement(account: Account) -> String {
 
     }
 

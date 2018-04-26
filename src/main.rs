@@ -5,5 +5,4 @@ fn main() {
     let mut account = Account::new();
     account.deposit(200);
     account.withdraw(150);
-    println!("{:?}", account.transactions);
 }

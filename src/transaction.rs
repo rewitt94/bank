@@ -1,10 +1,10 @@
-#[derive(Debug)]
+#[derive(Debug,PartialEq)]
 pub enum TransactionType {
     Credit,
     Debit,
 }
 
-#[derive(Debug)]
+#[derive(Debug,PartialEq)]
 pub struct Transaction {
     pub amount: i32,
     pub action: TransactionType,
@@ -45,18 +45,12 @@ mod transaction_tests {
     #[test]
     fn withdrawal_has_action_withdrawal() {
         let withdrawal = Transaction::withdrawal(100);
-        match withdrawal.action {
-            TransactionType::Debit => panic!("Expected Credit, but received Debit"),
-            TransactionType::Credit => return,
-        }
+        assert_eq!(withdrawal.action, TransactionType::Credit)
     }
 
     #[test]
     fn deposit_has_action_deposit() {
         let deposit = Transaction::deposit(250);
-        match deposit.action {
-            TransactionType::Debit => return,
-            TransactionType::Credit => panic!("Expected Dedit, but received Credit"),
-        }
+        assert_eq!(deposit.action, TransactionType::Debit)
     }
 }
