@@ -1,22 +1,24 @@
-enum TransactionType {
+#[derive(Debug)]
+pub enum TransactionType {
     Credit,
     Debit,
 }
 
+#[derive(Debug)]
 pub struct Transaction {
-    amount: i32,
-    action: TransactionType,
+    pub amount: i32,
+    pub action: TransactionType,
 }
 
 impl Transaction {
-    pub fn withdrawal(amount: i32) -> Transaction {
+    pub fn withdrawal(amount: i32) -> Self {
         Transaction {
             amount,
             action: TransactionType::Credit,
         }
     }
 
-    pub fn deposit(amount: i32) -> Transaction {
+    pub fn deposit(amount: i32) -> Self {
         Transaction {
             amount,
             action: TransactionType::Debit,
@@ -25,7 +27,7 @@ impl Transaction {
 }
 
 #[cfg(test)]
-mod transaction {
+mod transaction_tests {
     use super::*;
 
     #[test]
