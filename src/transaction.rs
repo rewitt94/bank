@@ -1,5 +1,3 @@
-extern crate chrono;
-
 #[derive(Debug,PartialEq)]
 pub enum TransactionType {
     Credit,
