@@ -102,10 +102,6 @@ This tech-test is lacking dates. I've looked at implementing the feature but the
  * If I make the date to the current time it will break my integration tests as they match to prewritten statements. (Again there is no option of an optional or default parameter in Rust.)
  * More a source of amusement than a problem, but Rust outputs std::time::SystemTime::now() in Unix Time (seconds since 00:00:00 Coordinated Universal Time (UTC), Thursday, 1 January 1970).
 
-### Reflections
-
-Doing this tech-test in a new language was both challenging a fulfilling. Trying to TDD a static complied language made me consider WHY I am writing tests and WHAT behaviour I am testing instead of testing on autopilot.
-
 
 ```
 N.B this probably reads too much like a blog post.
